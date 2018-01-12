@@ -43,8 +43,9 @@ const listBestsellers = (input) => {
         games.listGames().forEach((game, index) => {
           console.log(`${index + 1}. ${game.title}`);
         });
+
+        getDetails();
       });
-      
       break;
     case 'ps4':
       games.clearGames();
@@ -94,6 +95,30 @@ const listBestsellers = (input) => {
       rl.question('Invalid input, please try again: ', (input) => {
         listBestsellers(input);
       });
+  }
+};
+
+const getDetails = () => {
+  rl.question("Please enter the number of the game you want more details on:  ", (input) => {
+    listDetails(input);
+  });
+};
+
+const listDetails = (input) => {
+  let req = parseInt(input);
+  let game;
+  if (req > 0 && req < 13) {
+    game = games.listGames()[req - 1];
+    console.log("*******************************************************************");
+    console.log(`${game.title}:`);
+    console.log(`Published by: ${game.publisher}`);
+    console.log(`Current Price: ${game.price}`);
+    console.log(`For more info, go to: ${game.url}`);
+    console.log("*******************************************************************");
+  } else {
+    rl.question('Invalid input, please try again: ', (input) => {
+      listDetails(input);
+    });
   }
 };
 
