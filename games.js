@@ -14,12 +14,16 @@ const createGame = (title, price, publisher, url) => {
   allGames.push(game);
 };
 
+const listGames = () => {
+  return allGames;
+}
+
 const clearGames = () => {
   allGames = [];
 };
 
 module.exports = {
-  allGames,
+  listGames,
   createGame,
   clearGames
 }

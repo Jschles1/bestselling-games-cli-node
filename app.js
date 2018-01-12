@@ -31,7 +31,7 @@ const listBestsellers = (input) => {
   console.log(system);
 
   switch (system) {
-    case 'xbox':
+    case 'xbox one':
       // Scrape Xbox
       // Create Game Objects
       // List Game objects
@@ -40,7 +40,7 @@ const listBestsellers = (input) => {
       scraper.scrape("https://www.gamestop.com/browse/games/xbox-one?nav=28-xu0,131e0-ffff2418", () => {
         console.log("Current Xbox One Bestsellers:");
 
-        games.allGames.forEach((game, index) => {
+        games.listGames().forEach((game, index) => {
           console.log(`${index + 1}. ${game.title}`);
         });
       });
@@ -51,7 +51,7 @@ const listBestsellers = (input) => {
       scraper.scrape("https://www.gamestop.com/browse/games/playstation-4?nav=28-xu0,131dc-ffff2418", () => {
         console.log("Current PS4 Bestsellers:");
 
-        games.allGames.forEach((game, index) => {
+        games.listGames().forEach((game, index) => {
           console.log(`${index + 1}. ${game.title}`);
         });
       });
@@ -62,7 +62,7 @@ const listBestsellers = (input) => {
       scraper.scrape("https://www.gamestop.com/browse/games/nintendo-switch?nav=28-xu0,13ffff2418-1e8", () => {
         console.log("Current Nintendo Switch Bestsellers:");
 
-        games.allGames.forEach((game, index) => {
+        games.listGames().forEach((game, index) => {
           console.log(`${index + 1}. ${game.title}`);
         });
       });
@@ -73,7 +73,7 @@ const listBestsellers = (input) => {
       scraper.scrape("https://www.gamestop.com/browse/games/nintendo-wii-u?nav=131b0-ffff2418", () => {
         console.log("Current Wii U Bestsellers:");
 
-        games.allGames.forEach((game, index) => {
+        games.listGames().forEach((game, index) => {
           console.log(`${index + 1}. ${game.title}`);
         });
       });
@@ -84,7 +84,7 @@ const listBestsellers = (input) => {
       scraper.scrape("https://www.gamestop.com/browse/games/nintendo-3ds?nav=131a2-ffff2418", () => {
         console.log("Current Nintendo 3DS Bestsellers:");
 
-        games.allGames.forEach((game, index) => {
+        games.listGames().forEach((game, index) => {
           console.log(`${index + 1}. ${game.title}`);
         });
       });
