@@ -1,0 +1,11 @@
+{
+  "name": "bestselling-games-cli-node",
+  "version": "1.0.0",
+  "description": "Get the bestsellers of your chosen video game system.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "John Schlesinger",
+  "license": "MIT"
+}
