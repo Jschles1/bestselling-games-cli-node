@@ -55,10 +55,11 @@ const listBestsellers = (input) => {
         games.listGames().forEach((game, index) => {
           console.log(`${index + 1}. ${game.title}`);
         });
+
+        getDetails();
       });
-      
       break;
-    case 'switch':
+    case 'switch': // Need to fix scraping
       games.clearGames();
       scraper.scrape("https://www.gamestop.com/browse/games/nintendo-switch?nav=28-xu0,13ffff2418-1e8", () => {
         console.log("Current Nintendo Switch Bestsellers:");
@@ -66,8 +67,9 @@ const listBestsellers = (input) => {
         games.listGames().forEach((game, index) => {
           console.log(`${index + 1}. ${game.title}`);
         });
-      });
 
+        getDetails();
+      });
       break;
     case 'wii u':
       games.clearGames();
@@ -77,8 +79,9 @@ const listBestsellers = (input) => {
         games.listGames().forEach((game, index) => {
           console.log(`${index + 1}. ${game.title}`);
         });
+
+        getDetails();
       });
-      
       break;
     case '3ds':
       games.clearGames();
@@ -88,8 +91,9 @@ const listBestsellers = (input) => {
         games.listGames().forEach((game, index) => {
           console.log(`${index + 1}. ${game.title}`);
         });
+
+        getDetails();
       });
-      
       break;
     default:
       rl.question('Invalid input, please try again: ', (input) => {
@@ -115,11 +119,37 @@ const listDetails = (input) => {
     console.log(`Current Price: ${game.price}`);
     console.log(`For more info, go to: ${game.url}`);
     console.log("*******************************************************************");
+
+    decision();
   } else {
     rl.question('Invalid input, please try again: ', (input) => {
       listDetails(input);
     });
   }
+};
+
+const decision = () => {
+  rl.question(`
+    Type (1) if you would like to get details on another game from the list. \n
+    Type (2) if you would like to choose another system's bestsellers to list. \n
+    Type (3) if you would like to exit the program. \n
+  `, (input) => {
+    switch(input) {
+      case "1":
+        getDetails();
+        break;
+      case "2":
+        getSystem();
+        break;
+      case "3":
+        console.log("See you later!");
+        rl.close();
+        break;
+      default:
+        console.log('Invalid input, please try again:');
+        decision();
+    }
+  });
 };
 
 call();
