@@ -1,6 +1,7 @@
 const readline = require('readline');
 
 const scraper = require('./scraper');
+const games = require('./games');
 
 const rl = readline.createInterface({
   input: process.stdin,

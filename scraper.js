@@ -1,6 +1,8 @@
 const rp = require('request-promise');
 const cheerio = require('cheerio');
 
+const games = require('./games');
+
 const scrape = (url) => {
   const options = {
     uri: url,
