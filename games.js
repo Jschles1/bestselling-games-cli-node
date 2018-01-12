@@ -7,7 +7,7 @@ class Game {
   }
 };
 
-const allGames = [];
+var allGames = [];
 
 const createGame = (title, price, publisher, url) => {
   const game = new Game(title, price, publisher, url);

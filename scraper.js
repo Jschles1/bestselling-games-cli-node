@@ -3,7 +3,7 @@ const cheerio = require('cheerio');
 
 const games = require('./games');
 
-const scrape = (url) => {
+const scrape = (url, cb) => {
   const options = {
     uri: url,
     transform: (body) => {
@@ -12,10 +12,15 @@ const scrape = (url) => {
   };
 
   rp(options)
-    .then(data => {
+    .then($ => {
+      console.log($);
       // Get Attributes from element classes
       // Use attributes to create new JS model object
     })
+    .then(cb)
+    .catch(error => {
+
+    });
 };
 
 module.exports = {

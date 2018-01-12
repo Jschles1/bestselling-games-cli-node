@@ -37,44 +37,59 @@ const listBestsellers = (input) => {
       // List Game objects
       // Call getDetails
       games.clearGames();
-      scraper.scrape("https://www.gamestop.com/browse/games/xbox-one?nav=28-xu0,131e0-ffff2418");
-      console.log("Current Xbox One Bestsellers:");
+      scraper.scrape("https://www.gamestop.com/browse/games/xbox-one?nav=28-xu0,131e0-ffff2418", () => {
+        console.log("Current Xbox One Bestsellers:");
 
-      games.allGames.forEach((game, index) => {
-        console.log(`${index + 1}. ${game.title}`);
+        games.allGames.forEach((game, index) => {
+          console.log(`${index + 1}. ${game.title}`);
+        });
       });
+      
+      break;
     case 'ps4':
       games.clearGames();
-      scraper.scrape("https://www.gamestop.com/browse/games/playstation-4?nav=28-xu0,131dc-ffff2418");
-      console.log("Current PS4 Bestsellers:");
+      scraper.scrape("https://www.gamestop.com/browse/games/playstation-4?nav=28-xu0,131dc-ffff2418", () => {
+        console.log("Current PS4 Bestsellers:");
 
-      games.allGames.forEach((game, index) => {
-        console.log(`${index + 1}. ${game.title}`);
+        games.allGames.forEach((game, index) => {
+          console.log(`${index + 1}. ${game.title}`);
+        });
       });
+      
+      break;
     case 'switch':
       games.clearGames();
-      scraper.scrape("https://www.gamestop.com/browse/games/nintendo-switch?nav=28-xu0,13ffff2418-1e8");
-      console.log("Current Nintendo Switch Bestsellers:");
+      scraper.scrape("https://www.gamestop.com/browse/games/nintendo-switch?nav=28-xu0,13ffff2418-1e8", () => {
+        console.log("Current Nintendo Switch Bestsellers:");
 
-      games.allGames.forEach((game, index) => {
-        console.log(`${index + 1}. ${game.title}`);
+        games.allGames.forEach((game, index) => {
+          console.log(`${index + 1}. ${game.title}`);
+        });
       });
+
+      break;
     case 'wii u':
       games.clearGames();
-      scraper.scrape("https://www.gamestop.com/browse/games/nintendo-wii-u?nav=131b0-ffff2418");
-      console.log("Current Wii U Bestsellers:");
+      scraper.scrape("https://www.gamestop.com/browse/games/nintendo-wii-u?nav=131b0-ffff2418", () => {
+        console.log("Current Wii U Bestsellers:");
 
-      games.allGames.forEach((game, index) => {
-        console.log(`${index + 1}. ${game.title}`);
+        games.allGames.forEach((game, index) => {
+          console.log(`${index + 1}. ${game.title}`);
+        });
       });
+      
+      break;
     case '3ds':
       games.clearGames();
-      scraper.scrape("https://www.gamestop.com/browse/games/nintendo-3ds?nav=131a2-ffff2418");
-      console.log("Current Nintendo 3DS Bestsellers:");
+      scraper.scrape("https://www.gamestop.com/browse/games/nintendo-3ds?nav=131a2-ffff2418", () => {
+        console.log("Current Nintendo 3DS Bestsellers:");
 
-      games.allGames.forEach((game, index) => {
-        console.log(`${index + 1}. ${game.title}`);
+        games.allGames.forEach((game, index) => {
+          console.log(`${index + 1}. ${game.title}`);
+        });
       });
+      
+      break;
     default:
       rl.question('Invalid input, please try again: ', (input) => {
         listBestsellers(input);
