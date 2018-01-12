@@ -13,13 +13,27 @@ const scrape = (url, cb) => {
 
   rp(options)
     .then($ => {
-      console.log($);
-      // Get Attributes from element classes
-      // Use attributes to create new JS model object
+      const results = $("div.product");
+      results.each((i, elem) => {
+        let title = $(".ats-product-title-lnk")[i].children[0].data;
+        let priceArr = $("p.pricing.ats-product-price")[i];
+        let price;
+
+        if (priceArr.children.length !== 1) {
+          price = priceArr.children[1].data;
+        } else {
+          price = priceArr.children[0].data;
+        }
+
+        let publisher = $(".publisher.ats-product-publisher")[i].children[0].data.replace("by", "").trim();
+        let url = "www.gamestop.com" + $(".ats-product-title-lnk")[i].attribs.href;
+        
+        games.createGame(title, price, publisher, url);
+      })
     })
     .then(cb)
     .catch(error => {
-
+      console.log(error)
     });
 };
 
